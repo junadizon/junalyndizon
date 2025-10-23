@@ -1,60 +1,53 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-
-const navStyle: React.CSSProperties = {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-  padding: "16px",
-  borderBottom: "1px solid rgba(255,255,255,0.1)",
-  position: "sticky",
-  top: 0,
-  backdropFilter: "blur(6px)",
-  zIndex: 10,
-};
-
-const linkStyle: React.CSSProperties = {
-  padding: "8px 12px",
-  borderRadius: 8,
-  fontWeight: 600,
-};
-
-const activeStyle: React.CSSProperties = {
-  background: "rgba(255,255,255,0.08)",
-};
-
-const links = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/projects", label: "Projects" },
-  { href: "/contact", label: "Contact" },
-];
 
 export function NavBar() {
-  const pathname = usePathname();
-
   return (
-    <nav style={navStyle}>
-      <Link href="/" style={{ fontWeight: 800, letterSpacing: 0.5 }}>
-        Portfolio
-      </Link>
-      <div style={{ display: "flex", gap: 8 }}>
-        {links.map((l) => (
-          <Link
-            key={l.href}
-            href={l.href}
-            style={{
-              ...linkStyle,
-              ...(pathname === l.href ? activeStyle : {}),
-            }}
-          >
-            {l.label}
-          </Link>
-        ))}
+    <div className="sticky top-0 z-50 w-full" style={{ borderColor: "var(--color-nav-border)", backgroundColor: "color-mix(in oklab, var(--color-bg) 70%, transparent)" }}>
+      <div className="mx-auto flex w-full max-w-[1200px] items-center justify-between gap-4 px-4 py-4">
+        <Link href="/" aria-label="Home" className="shrink-0 font-mono text-lg" style={{ color: "var(--color-accent)" }}>J</Link>
+        <nav aria-label="Primary" className="block">
+          <ul role="list" className="list-none m-0 p-0 flex items-center gap-8 md:gap-10 lg:gap-12">
+            <li>
+              <a
+                href="#About"
+                className="nav-link"
+              >
+                About
+              </a>
+            </li>
+            <li>
+              <a
+                href="#Experience"
+                className="nav-link"
+              >
+                Experience
+              </a>
+            </li>
+            <li>
+              <a
+                href="#Projects"
+                className="nav-link"
+              >
+                Projects
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://drive.google.com/file/d/12ZmbXuGfCttQxoKFFiJ5rHVy_T9YoHFc/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="resume-link"
+              >
+                Resume
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
-    </nav>
+    </div>
   );
 }
+
 
 
