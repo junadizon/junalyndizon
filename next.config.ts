@@ -7,7 +7,16 @@ const nextConfig: NextConfig = {
   // To activate, set basePath via NEXT_PUBLIC_BASE_PATH or edit directly
   output: "export",
   basePath: isGhPages || undefined,
-  images: { unoptimized: true },
+  images: {
+    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.prod.website-files.com",
+        pathname: "/**",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
