@@ -10,7 +10,7 @@ export function NavBar() {
           <Image src="/favicon-32x32.png" alt="Home" width={32} height={32} priority />
         </Link>
         <nav aria-label="Primary" className="block">
-          <ul role="list" className="list-none m-0 p-0 flex items-center gap-8 md:gap-10 lg:gap-12">
+          <ul role="list" className="list-none m-0 p-0 flex items-center gap-8 md:gap-10 lg:gap-5">
             <li>
               <a
                 href="#About"
